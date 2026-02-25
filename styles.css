@@ -1,26 +1,37 @@
-/* =========================
-   IVKO STYLES – FULL FILE
-   (Mobile fix: Sticker grid)
-========================= */
+/* =========================================================
+   IVKO STYLES.CSS
+========================================================= */
 
+/* ============ ROOT + BASE ============ */
 :root{
   --bg:#070A0F;
   --text:rgba(255,255,255,.92);
-  --muted:rgba(255,255,255,.72);
+  --muted:rgba(255,255,255,.70);
   --line:rgba(255,255,255,.14);
-  --glass:rgba(255,255,255,.10);
-  --glass2:rgba(255,255,255,.06);
+
+  --glassA:rgba(255,255,255,.18);
+  --glassB:rgba(255,255,255,.08);
+  --glassC:rgba(255,255,255,.06);
+
   --shadow:0 35px 120px rgba(0,0,0,.65);
+
+  /* brand red mit Glanz */
+  --red1:#ff4b4b;
+  --red2:#b80f1a;
+  --red3:#ff1f3a;
+  --red-glow:#ff8080;
+
   --r:34px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
   background:
     radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,.18), transparent 60%),
     radial-gradient(900px 600px at 85% 10%, rgba(34,197,94,.12), transparent 55%),
+    radial-gradient(900px 700px at 60% 120%, rgba(184,15,26,.10), transparent 60%),
     var(--bg);
   color:var(--text);
   overflow-x:hidden;
@@ -29,87 +40,172 @@ body{
 a{color:inherit;text-decoration:none}
 .container{max-width:1200px;margin:0 auto;padding:0 18px}
 
-/* =========================
-   HEADER
-========================= */
+/* ============ HERO BACKGROUND ============ */
+.hero{
+  position:relative;
+  height: 95vh;
+  width:100%;
+  overflow:hidden;
+}
+.hero__img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform: scale(1.03);
+  filter: brightness(.92) contrast(1.06) saturate(1.06);
+}
+.hero__dim{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1000px 600px at 25% 30%, rgba(0,0,0,.14), rgba(0,0,0,.75) 75%),
+    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.88));
+}
 
+/* ============ HEADER ============ */
 .topbar{
   position: fixed;
-  top: 16px;
+  top: 18px;
   left: 0;
   right: 0;
   z-index: 50;
+
+  transform: translate3d(0,var(--liftY,0px),0) scale(var(--liftScale,1));
+  opacity: var(--liftOpacity,1);
+  filter: blur(var(--liftBlur,0px));
+  transform-origin: top center;
 }
 
 .topbar__inner{
-  padding: 44px 56px;
+  padding: 34px 66px;
   border-radius: 38px;
   border: 1px solid rgba(255,255,255,.15);
-  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+
+  background:
+    radial-gradient(1000px 520px at 12% 0%, rgba(184,15,26,.12), transparent 58%),
+    linear-gradient(180deg, var(--glassA), var(--glassB));
+
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   box-shadow: 0 45px 130px rgba(0,0,0,.65);
+  overflow:hidden;
+  position:relative;
 }
 
-.brand__logo{
-  text-align:center;
-  margin-bottom: 16px;
+.topbar__inner::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(650px 240px at 15% 0%, rgba(255,255,255,.10), transparent 60%);
+  opacity:.55;
+  pointer-events:none;
 }
 
-/* ===== BRAND LOGO TEXT ===== */
-.brand__logo-big{
-  font-size: 78px;
-  font-weight: 950;
-  letter-spacing: 2px;
+/* ============ BRAND TEXT - ROT MIT GLANZ ============ */
+.brand{ text-align:center; }
+
+.brand__logo-text{
+  display:flex;
+  justify-content:center;
+  margin-bottom: 18px;
+}
+
+.ivko-stack{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap: 6px;
+}
+
+.ivko-main{
+  font-family: "Playfair Display", serif;
+  font-size: 86px;
+  font-weight: 900;
+  letter-spacing: -2px;
   line-height: 1;
-  background: linear-gradient(90deg, #ff2b2b, #b80f1a, #ff4b4b);
-  -webkit-background-clip: text;
+
+  /* ROTER TEXT MIT GLANZ */
+  background: linear-gradient(135deg, 
+    #ff9999 0%,
+    #ff1f3a 30%,
+    #ff4b4b 50%,
+    #ffffff 70%,
+    #b80f1a 85%,
+    #ff4b4b 100%
+  );
+  -webkit-background-clip:text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 18px 40px rgba(184,15,26,.22);
+  
+  text-shadow: 
+    0 0 30px rgba(255, 75, 75, 0.5),
+    0 0 60px rgba(184, 15, 26, 0.3);
+  
+  position:relative;
+  animation: redGlow 3s ease-in-out infinite;
 }
 
-.brand__logo-small{
-  font-size: 34px;
+@keyframes redGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 30px rgba(255, 75, 75, 0.5),
+      0 0 60px rgba(184, 15, 26, 0.3);
+    background: linear-gradient(135deg, 
+      #ff9999 0%,
+      #ff1f3a 30%,
+      #ff4b4b 50%,
+      #ffffff 70%,
+      #b80f1a 85%,
+      #ff4b4b 100%
+    );
+    -webkit-background-clip:text;
+  }
+  50% {
+    text-shadow: 
+      0 0 40px rgba(255, 120, 120, 0.8),
+      0 0 80px rgba(255, 31, 58, 0.6),
+      0 0 100px rgba(255, 75, 75, 0.4);
+    background: linear-gradient(135deg, 
+      #ffffff 0%,
+      #ff4b4b 25%,
+      #ff1f3a 50%,
+      #ff8080 75%,
+      #ffffff 100%
+    );
+    -webkit-background-clip:text;
+  }
+}
+
+.ivko-sub{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  font-size: 40px;
   font-weight: 700;
   letter-spacing: 6px;
   text-transform: uppercase;
   opacity: .92;
-  margin-top: 6px;
-}
-
-.brand__services{
-  font-size: 24px;
-  font-weight: 900;
-  text-align:center;
-  margin-top: 10px;
-}
-
-.brand__copy{
-  font-size: 20px;
-  font-weight: 700;
-  text-align:center;
-  opacity: .86;
-  margin-top: 12px;
 }
 
 .brand__languages{
-  margin-top: 18px;
+  margin-top: 22px;
 }
 .brand__languages-title{
   font-weight: 900;
+  font-size: 18px;
   margin-bottom: 10px;
-  text-align:center;
 }
 
 .flags{
   display:flex;
   flex-wrap:wrap;
-  gap: 12px;
   justify-content:center;
+  gap: 12px;
 }
-
 .flag{
-  padding: 10px 14px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 10px 16px;
   border-radius: 16px;
   background: rgba(255,255,255,.10);
   border: 1px solid rgba(255,255,255,.10);
@@ -119,141 +215,150 @@ a{color:inherit;text-decoration:none}
   font-size: 16px;
 }
 
-/* =========================
-   HERO IMAGE
-========================= */
-.image-section{
-  position:relative;
-  height: 95vh;
-  width:100%;
-  overflow:hidden;
-}
-.image-section img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transform: scale(1.03);
-  filter: brightness(.92) contrast(1.05) saturate(1.05);
-}
-.image-dim{
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(1000px 600px at 25% 30%, rgba(0,0,0,.12), rgba(0,0,0,.78) 75%),
-    linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.88));
+/* Tagline (zwischen Header und Services) */
+.tagline{
+  padding: 30px 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
-/* =========================
-   LEISTUNGEN SECTION
-========================= */
+.tagline__text{
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: rgba(255,255,255,.95);
+  text-shadow: 0 0 20px rgba(184,15,26,.3);
+  letter-spacing: -0.3px;
+}
+
+/* Spacer */
+.header-spacer{ height: 360px; }
+
+/* ============ SERVICES - GLAS WÖLKCHEN ============ */
 .services{
-  padding: 120px 0 110px;
+  padding: 30px 0 90px;
+  position:relative;
+  z-index: 1;
 }
-.section-title{
-  font-size: clamp(34px, 4vw, 56px);
+
+.section-head h2{
+  font-size: clamp(34px, 4vw, 64px);
   font-weight: 950;
-  letter-spacing: -.6px;
-  margin-bottom: 8px;
+  letter-spacing: -1px;
+  text-align: center;
+  margin-bottom: 10px;
 }
-.section-sub{
-  color: rgba(255,255,255,.65);
+.section-head p{
+  text-align: center;
+  margin-top: 10px;
+  color: var(--muted);
   font-size: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 40px;
 }
 
-.glass-stage{
-  border-radius: 34px;
-  border: 1px solid rgba(255,255,255,.14);
-  background:
-    radial-gradient(900px 420px at 20% 20%, rgba(59,130,246,.14), transparent 55%),
-    radial-gradient(900px 420px at 80% 15%, rgba(184,15,26,.12), transparent 60%),
-    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 40px 120px rgba(0,0,0,.45);
-  padding: 34px;
-  overflow:hidden;
+/* Glas-Wölkchen Container */
+.glass-clouds{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-/* ===== STICKER GRID (DESKTOP + MOBILE SAFE) ===== */
-.sticker-grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
-  align-items: stretch;
-  justify-items: stretch;
-  max-width: 980px;
-  margin: 0 auto;
+.cloud-row{
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
 
-.sticker{
-  display:flex;
-  align-items:center;
-  gap: 16px;
-
-  padding: 18px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.08));
-  box-shadow:
-    0 22px 80px rgba(0,0,0,.35),
-    inset 0 1px 0 rgba(255,255,255,.22);
-
-  min-height: 86px;
-}
-
-.sticker__icon{
-  width: 54px;
-  height: 54px;
-  border-radius: 18px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: rgba(255,255,255,.10);
-  border: 1px solid rgba(255,255,255,.10);
-  font-size: 26px;
-  flex: 0 0 auto;
-}
-
-.sticker__text{
-  font-size: 26px;
-  font-weight: 950;
-  letter-spacing: .2px;
-  line-height: 1.05;
-
-  /* WICHTIG: nix darf rauslaufen */
-  min-width: 0;
+/* Wölkchen (Cloud) Design */
+.cloud{
+  flex: 1 1 280px;
+  max-width: 320px;
+  padding: 30px 20px;
+  
+  /* Glas-Effekt */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  
+  /* Wölkchen-Form */
+  border-radius: 80px 80px 80px 80px / 60px 60px 60px 60px;
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 2px 20px rgba(255, 255, 255, 0.15);
+  
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
-/* Wide item in last row */
-.sticker--wide{
-  grid-column: 1 / -1;
-  justify-content:center;
-}
-.sticker--wide .sticker__text{
-  white-space: normal;
-  text-align:center;
+/* Wölkchen-Innen-Glanz */
+.cloud::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  right: -10%;
+  bottom: -10%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* =========================
-   CONTACT
-========================= */
+.cloud:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 75, 75, 0.3);
+  box-shadow: 
+    0 30px 60px -12px rgba(184, 15, 26, 0.3),
+    inset 0 -2px 0 rgba(255, 255, 255, 0.2),
+    inset 0 2px 30px rgba(255, 75, 75, 0.2);
+}
+
+.cloud-icon {
+  font-size: 42px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 10px rgba(255,75,75,0.3));
+  position: relative;
+  z-index: 1;
+}
+
+.cloud-title {
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #fff, #ffb3b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.cloud-desc {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+
+/* ============ CONTACT ============ */
 .contact{
-  padding: 110px 0 110px;
+  padding: 95px 0 90px;
   background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
   text-align:center;
+  position:relative;
+  z-index: 1;
 }
 
 .contact h2{
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-size: clamp(30px, 3.2vw, 46px);
   font-weight: 950;
   letter-spacing: -.6px;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
 }
 
 .contact-modern{
@@ -276,13 +381,11 @@ a{color:inherit;text-decoration:none}
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 26px 80px rgba(0,0,0,.40);
+  transition: transform .18s ease, filter .18s ease;
 }
+.contact-card:hover{ transform: translateY(-6px); filter: brightness(1.05); }
 
-.contact-card .icon{
-  font-size: 28px;
-  line-height: 1;
-  margin-top: 2px;
-}
+.contact-card .icon{ font-size: 28px; line-height: 1; margin-top: 2px; }
 
 .label{
   font-size: 12px;
@@ -300,41 +403,51 @@ a{color:inherit;text-decoration:none}
 }
 
 .contact-small{
-  margin-top: 6px;
+  margin-top: 8px;
   color: rgba(255,255,255,.62);
   font-size: 13px;
 }
 
 .footer{
-  margin-top: 26px;
+  margin-top: 28px;
   opacity: .55;
   font-size: 13px;
 }
 
-/* =========================
-   MOBILE FIXES (WICHTIG!)
-========================= */
+/* ============ RESPONSIVE ============ */
 @media (max-width: 900px){
-  .topbar__inner{padding: 34px 20px; border-radius: 26px;}
-  .brand__logo-big{font-size: 64px}
-  .brand__logo-small{font-size: 26px}
-  .brand__services{font-size: 18px}
-  .brand__copy{font-size: 17px}
-  .image-section{height: 88vh;}
-  .sticker-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
-  .sticker__text{font-size: 22px;}
+  .container{padding:0 14px}
+  .topbar{top:12px}
+  .topbar__inner{ padding: 34px 20px; border-radius: 26px; }
+  .ivko-main{ font-size: 64px; }
+  .ivko-sub{ font-size: 28px; letter-spacing: 4px; }
+  .flag{ font-size: 15px; padding: 10px 12px; }
+  .tagline__text{ font-size: 22px; }
 }
 
-@media (max-width: 520px){
-  .container{padding: 0 14px}
-  .services{padding: 96px 0 90px}
-  .glass-stage{padding: 18px}
-  .sticker{min-height: 78px; padding: 16px}
-  .sticker__icon{width: 48px; height: 48px; font-size: 24px}
-  .sticker__text{
-    font-size: 20px;
-    white-space: normal;      /* Mobile: darf umbrechen */
-    overflow: visible;
-    text-overflow: unset;
+@media (max-width: 600px){
+  .topbar__inner{ padding: 28px 16px; border-radius: 22px; }
+  .ivko-main{ font-size: 54px; }
+  .ivko-sub{ font-size: 22px; letter-spacing: 3px; }
+  .flags{ gap: 10px; }
+  .flag{ flex: 1 1 calc(50% - 10px); justify-content:center; }
+  .tagline__text{ font-size: 18px; }
+  
+  /* Wölkchen Mobile */
+  .cloud-row{ gap: 15px; }
+  .cloud{ 
+    flex: 1 1 100%; 
+    max-width: 100%;
+    padding: 25px 15px;
   }
+  .cloud-icon{ font-size: 36px; }
+  .cloud-title{ font-size: 22px; }
+  .cloud-desc{ font-size: 14px; }
+  
+  .section-head h2{ font-size: 44px; }
+  .section-head p{ font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .ivko-main{ animation:none; }
 }
