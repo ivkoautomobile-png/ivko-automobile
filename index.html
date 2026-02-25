@@ -2,23 +2,43 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IvKo Automobile – Werkstatt</title>
-  <link rel="stylesheet" href="styles.css?v=8" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#070A0F" />
 </head>
 
 <body>
 
   <!-- =========================
-       HERO / HEADER
+       HERO / BACKGROUND IMAGE
   ========================== -->
-  <header class="topbar" id="liftHeader">
+  <section class="hero" aria-label="Hero">
+    <img class="hero__img" src="workshop-top.jpeg" alt="Werkstatt Hintergrund" />
+    <div class="hero__dim"></div>
+  </section>
+
+  <!-- =========================
+       HEADER (FIXED, fades on scroll)
+       ID is needed for JS
+  ========================== -->
+  <header class="topbar" id="liftHeader" aria-label="Header">
     <div class="container">
       <div class="topbar__inner">
+
+        <!-- ===== BRAND ===== -->
         <div class="brand">
-          <div class="brand__logo">
-            <div class="brand__logo-big">IVKO</div>
-            <div class="brand__logo-small">Automobile</div>
+          <div class="brand__logo-text" aria-label="IvKo Automobile">
+            <div class="ivko-stack">
+              <div class="ivko-main">IVKO</div>
+              <div class="ivko-sub">Automobile</div>
+            </div>
           </div>
 
           <div class="brand__services">
@@ -32,125 +52,149 @@
           <div class="brand__languages">
             <div class="brand__languages-title">Wir sprechen:</div>
             <div class="flags">
-              <div class="flag">🇩🇪 Deutsch</div>
-              <div class="flag">🇬🇧 Englisch</div>
-              <div class="flag">🇬🇷 Griechisch</div>
-              <div class="flag">🇧🇬 Bulgarisch</div>
-              <div class="flag">🇷🇺 Russisch</div>
-              <div class="flag">🇺🇦 Ukrainisch</div>
+              <span class="flag">🇩🇪 Deutsch</span>
+              <span class="flag">🇬🇧 Englisch</span>
+              <span class="flag">🇬🇷 Griechisch</span>
+              <span class="flag">🇧🇬 Bulgarisch</span>
+              <span class="flag">🇷🇺 Russisch</span>
+              <span class="flag">🇺🇦 Ukrainisch</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </header>
 
   <!-- =========================
-       HERO IMAGE
+       MAIN CONTENT
   ========================== -->
-  <section class="image-section">
-    <img src="workshop-top.jpeg" alt="Werkstatt" />
-    <div class="image-dim"></div>
-  </section>
+  <main>
 
-  <!-- =========================
-       LEISTUNGEN
-  ========================== -->
-  <section class="services" id="services">
-    <div class="container">
-      <h2 class="section-title">Leistungen</h2>
-      <p class="section-sub">Unsere wichtigsten Leistungen auf einen Blick.</p>
+    <!-- Spacer so content starts under fixed header (JS updates this too) -->
+    <div class="header-spacer" id="headerSpacer"></div>
 
-      <div class="glass-stage">
-        <!-- ===== STICKER GRID (WICHTIG: Mobile sauber) ===== -->
-        <div class="sticker-grid">
-          <div class="sticker">
-            <div class="sticker__icon">🖥️</div>
-            <div class="sticker__text">Diagnose</div>
-          </div>
+    <!-- =========================
+         SERVICES (GLASS WALL)
+    ========================== -->
+    <section class="services" id="services">
+      <div class="container">
 
-          <div class="sticker">
-            <div class="sticker__icon">🖌️</div>
-            <div class="sticker__text">Lackierung</div>
-          </div>
+        <div class="section-head">
+          <h2>Leistungen</h2>
+          <p>Unsere wichtigsten Leistungen auf einen Blick.</p>
+        </div>
 
-          <div class="sticker">
-            <div class="sticker__icon">🛞</div>
-            <div class="sticker__text">Reifenservice</div>
-          </div>
+        <div class="glass-wall" aria-label="Leistungen Glaswand">
+          <div class="service-grid">
 
-          <div class="sticker">
-            <div class="sticker__icon">❄️</div>
-            <div class="sticker__text">Klimaservice</div>
-          </div>
+            <div class="service-pill">
+              <div class="service-icon">🖥️</div>
+              <div class="service-title">Diagnose</div>
+            </div>
 
-          <div class="sticker">
-            <div class="sticker__icon">✅</div>
-            <div class="sticker__text">TÜV</div>
-          </div>
+            <div class="service-pill">
+              <div class="service-icon">🖌️</div>
+              <div class="service-title">Lackierung</div>
+            </div>
 
-          <div class="sticker">
-            <div class="sticker__icon">🔧</div>
-            <div class="sticker__text">Inspektion</div>
-          </div>
+            <div class="service-pill">
+              <div class="service-icon">🛞</div>
+              <div class="service-title">Reifenservice</div>
+            </div>
 
-          <div class="sticker">
-            <div class="sticker__icon">🛢️</div>
-            <div class="sticker__text">Ölservice</div>
-          </div>
+            <div class="service-pill">
+              <div class="service-icon">❄️</div>
+              <div class="service-title">Klimaservice</div>
+            </div>
 
-          <div class="sticker">
-            <div class="sticker__icon">🎨</div>
-            <div class="sticker__text">Smart Repair</div>
-          </div>
+            <div class="service-pill">
+              <div class="service-icon">✅</div>
+              <div class="service-title">TÜV</div>
+            </div>
 
-          <div class="sticker sticker--wide">
-            <div class="sticker__icon">🚗</div>
-            <div class="sticker__text">An- &amp; Verkauf</div>
+            <div class="service-pill">
+              <div class="service-icon">🔧</div>
+              <div class="service-title">Inspektion</div>
+            </div>
+
+            <div class="service-pill">
+              <div class="service-icon">🛢️</div>
+              <div class="service-title">Ölservice</div>
+            </div>
+
+            <div class="service-pill">
+              <div class="service-icon">🎨</div>
+              <div class="service-title">Smart Repair</div>
+            </div>
+
+            <div class="service-pill">
+              <div class="service-icon">🚗</div>
+              <div class="service-title">An- & Verkauf</div>
+            </div>
+
           </div>
         </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- =========================
+         CONTACT (Footer / Kontakt)
+    ========================== -->
+    <section class="contact" id="kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
 
-  <!-- =========================
-       KONTAKT
-  ========================== -->
-  <section class="contact" id="kontakt">
-    <div class="container">
-      <h2>Kontakt</h2>
+        <div class="contact-modern">
 
-      <div class="contact-modern">
-        <div class="contact-card">
-          <div class="icon">📍</div>
-          <div>
-            <div class="label">Adresse</div>
-            <a target="_blank" rel="noopener"
-               href="https://www.google.com/maps/search/?api=1&query=IvKo%20Automobile%2C%20Alte%20Gladbacher%20Str.%206%2C%2047805%20Krefeld">
-              Alte Gladbacher Str. 6, 47805 Krefeld
-            </a>
-            <div class="contact-small">In Google Maps öffnen</div>
+          <div class="contact-card">
+            <div class="icon">📞</div>
+            <div>
+              <div class="label">Festnetz (auch WhatsApp)</div>
+              <a href="https://wa.me/4921514427532" target="_blank" rel="noopener">
+                +49 2151 4427532
+              </a>
+              <div class="contact-small">Termin einfach per WhatsApp schreiben.</div>
+            </div>
           </div>
+
+          <div class="contact-card">
+            <div class="icon">📍</div>
+            <div>
+              <div class="label">Adresse</div>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=IvKo%20Automobile%2C%20Alte%20Gladbacher%20Str.%206%2C%2047805%20Krefeld"
+                target="_blank" rel="noopener"
+              >
+                Alte Gladbacher Str. 6, 47805 Krefeld
+              </a>
+              <div class="contact-small">In Google Maps öffnen.</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="icon">🌐</div>
+            <div>
+              <div class="label">Website</div>
+              <a href="https://ivko-automobile.com" target="_blank" rel="noopener">
+                ivko-automobile.com
+              </a>
+              <div class="contact-small">Immer aktuelle Infos.</div>
+            </div>
+          </div>
+
         </div>
 
-        <div class="contact-card">
-          <div class="icon">💬</div>
-          <div>
-            <div class="label">WhatsApp (Termin)</div>
-            <a target="_blank" rel="noopener"
-               href="https://wa.me/4921514427532">
-              +49 2151 4427532
-            </a>
-            <div class="contact-small">Einfach schreiben: “Hallo, ich brauche einen Termin.”</div>
-          </div>
+        <div class="footer">
+          © <span id="year"></span> IvKo Automobile
         </div>
+
       </div>
+    </section>
 
-      <div class="footer">© <span id="year"></span> IvKo Automobile</div>
-    </div>
-  </section>
+  </main>
 
-  <script src="script.js?v=8"></script>
+  <script src="script.js"></script>
 </body>
 </html>
