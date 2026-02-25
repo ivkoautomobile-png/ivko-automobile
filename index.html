@@ -2,116 +2,122 @@
 <html lang="de">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IvKo Automobile – Werkstatt in Krefeld</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IvKo Automobile – Werkstatt</title>
+  <link rel="stylesheet" href="styles.css?v=8" />
 </head>
 
 <body>
-  <!-- HEADER -->
+
+  <!-- =========================
+       HERO / HEADER
+  ========================== -->
   <header class="topbar" id="liftHeader">
-    <div class="container topbar__inner">
-     <!-- ===== BRAND CENTERED ===== -->
-<div class="brand brand--centered">
+    <div class="container">
+      <div class="topbar__inner">
+        <div class="brand">
+          <div class="brand__logo">
+            <div class="brand__logo-big">IVKO</div>
+            <div class="brand__logo-small">Automobile</div>
+          </div>
 
-  <div class="brand__logo">
-    <span class="brand__ivko">IVKO</span>
-    <span class="brand__automobile">AUTOMOBILE</span>
-  </div>
+          <div class="brand__services">
+            Diagnose · Lackierung · Reifenservice · Klimaservice · TÜV · Inspektion
+          </div>
 
-  <div class="brand__claim">
-    Faire Preise. Schnell, sauber und zuverlässig.
-  </div>
+          <div class="brand__copy">
+            Faire Preise. Schnell, sauber und zuverlässig.
+          </div>
 
-  <div class="brand__languages">
-    <div class="brand__languages-title">Wir sprechen:</div>
-    <div class="flags">
-      <div class="flag">🇩🇪 Deutsch</div>
-      <div class="flag">🇬🇧 Englisch</div>
-      <div class="flag">🇬🇷 Griechisch</div>
-      <div class="flag">🇧🇬 Bulgarisch</div>
-      <div class="flag">🇷🇺 Russisch</div>
-      <div class="flag">🇺🇦 Ukrainisch</div>
-    </div>
-  </div>
-
-</div>
-<!-- ===== END BRAND CENTERED ===== -->
+          <div class="brand__languages">
+            <div class="brand__languages-title">Wir sprechen:</div>
+            <div class="flags">
+              <div class="flag">🇩🇪 Deutsch</div>
+              <div class="flag">🇬🇧 Englisch</div>
+              <div class="flag">🇬🇷 Griechisch</div>
+              <div class="flag">🇧🇬 Bulgarisch</div>
+              <div class="flag">🇷🇺 Russisch</div>
+              <div class="flag">🇺🇦 Ukrainisch</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- HERO IMAGE -->
-  <section class="image-section" aria-label="Werkstatt Hintergrund">
-    <img src="workshop-top.jpeg" alt="Werkstatt IvKo" />
+  <!-- =========================
+       HERO IMAGE
+  ========================== -->
+  <section class="image-section">
+    <img src="workshop-top.jpeg" alt="Werkstatt" />
     <div class="image-dim"></div>
   </section>
 
-  <!-- SERVICES (statisch, perfekt zentriert) -->
+  <!-- =========================
+       LEISTUNGEN
+  ========================== -->
   <section class="services" id="services">
     <div class="container">
-      <h2 class="services__title">Leistungen</h2>
-      <p class="services__hint">Unsere wichtigsten Leistungen auf einen Blick.</p>
+      <h2 class="section-title">Leistungen</h2>
+      <p class="section-sub">Unsere wichtigsten Leistungen auf einen Blick.</p>
 
       <div class="glass-stage">
-        <div class="sticker-grid" aria-label="Leistungen Grid">
+        <!-- ===== STICKER GRID (WICHTIG: Mobile sauber) ===== -->
+        <div class="sticker-grid">
+          <div class="sticker">
+            <div class="sticker__icon">🖥️</div>
+            <div class="sticker__text">Diagnose</div>
+          </div>
 
-  <!-- Reihe 1 -->
-  <div class="glass-pill">
-    <span class="pill-icon">🖥️</span>
-    <span class="pill-text">Diagnose</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">🖌️</div>
+            <div class="sticker__text">Lackierung</div>
+          </div>
 
-  <div class="glass-pill">
-    <span class="pill-icon">🖌️</span>
-    <span class="pill-text">Lackierung</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">🛞</div>
+            <div class="sticker__text">Reifenservice</div>
+          </div>
 
-  <div class="glass-pill">
-    <span class="pill-icon">🛞</span>
-    <span class="pill-text">Reifenservice</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">❄️</div>
+            <div class="sticker__text">Klimaservice</div>
+          </div>
 
-  <!-- Reihe 2 -->
-  <div class="glass-pill">
-    <span class="pill-icon">❄️</span>
-    <span class="pill-text">Klimaservice</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">✅</div>
+            <div class="sticker__text">TÜV</div>
+          </div>
 
-  <div class="glass-pill">
-    <span class="pill-icon">✅</span>
-    <span class="pill-text">TÜV</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">🔧</div>
+            <div class="sticker__text">Inspektion</div>
+          </div>
 
-  <div class="glass-pill">
-    <span class="pill-icon">🔧</span>
-    <span class="pill-text">Inspektion</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">🛢️</div>
+            <div class="sticker__text">Ölservice</div>
+          </div>
 
-  <!-- Neue Reihe 3 -->
-  <div class="glass-pill">
-    <span class="pill-icon">🛢️</span>
-    <span class="pill-text">Ölservice</span>
-  </div>
+          <div class="sticker">
+            <div class="sticker__icon">🎨</div>
+            <div class="sticker__text">Smart Repair</div>
+          </div>
 
-  <div class="glass-pill">
-    <span class="pill-icon">🎨</span>
-    <span class="pill-text">Smart Repair</span>
-  </div>
-
-  <div class="glass-pill">
-    <span class="pill-icon">🚗</span>
-    <span class="pill-text">An- & Verkauf</span>
-  </div>
-
-</div>
+          <div class="sticker sticker--wide">
+            <div class="sticker__icon">🚗</div>
+            <div class="sticker__text">An- &amp; Verkauf</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
+  <!-- =========================
+       KONTAKT
+  ========================== -->
+  <section class="contact" id="kontakt">
     <div class="container">
       <h2>Kontakt</h2>
 
@@ -120,36 +126,31 @@
           <div class="icon">📍</div>
           <div>
             <div class="label">Adresse</div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Alte+Gladbacher+Str.+6%2C+47805+Krefeld" target="_blank" rel="noopener">
-              Alte Gladbacher Str. 6<br>47805 Krefeld
+            <a target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&query=IvKo%20Automobile%2C%20Alte%20Gladbacher%20Str.%206%2C%2047805%20Krefeld">
+              Alte Gladbacher Str. 6, 47805 Krefeld
             </a>
+            <div class="contact-small">In Google Maps öffnen</div>
           </div>
         </div>
 
         <div class="contact-card">
-          <div class="icon">📲</div>
+          <div class="icon">💬</div>
           <div>
-            <div class="label">WhatsApp / Festnetz</div>
-            <a href="https://wa.me/4921514427532" target="_blank" rel="noopener">+49 2151 4427532</a>
-            <div class="contact-small">Termin &amp; Fragen: einfach per WhatsApp schreiben.</div>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <div class="icon">✉️</div>
-          <div>
-            <div class="label">E-Mail</div>
-            <a href="mailto:ivko.automobile@gmail.com">ivko.automobile@gmail.com</a>
+            <div class="label">WhatsApp (Termin)</div>
+            <a target="_blank" rel="noopener"
+               href="https://wa.me/4921514427532">
+              +49 2151 4427532
+            </a>
+            <div class="contact-small">Einfach schreiben: “Hallo, ich brauche einen Termin.”</div>
           </div>
         </div>
       </div>
 
-      <footer class="footer">
-        © <span id="year"></span> IvKo Automobile · Krefeld
-      </footer>
+      <div class="footer">© <span id="year"></span> IvKo Automobile</div>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
