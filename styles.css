@@ -1,5 +1,5 @@
 /* =========================================================
-   IVKO STYLES.CSS
+   IVKO STYLES.CSS - KORRIGIERT
 ========================================================= */
 
 /* ============ ROOT + BASE ============ */
@@ -64,7 +64,7 @@ a{color:inherit;text-decoration:none}
     linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.88));
 }
 
-/* ============ HEADER ============ */
+/* ============ HEADER - SCHNELL VERSCHWINDEN ============ */
 .topbar{
   position: fixed;
   top: 18px;
@@ -76,6 +76,9 @@ a{color:inherit;text-decoration:none}
   opacity: var(--liftOpacity,1);
   filter: blur(var(--liftBlur,0px));
   transform-origin: top center;
+  
+  /* Schnelleres Verschwinden */
+  transition: opacity 0.2s ease;
 }
 
 .topbar__inner{
@@ -103,7 +106,7 @@ a{color:inherit;text-decoration:none}
   pointer-events:none;
 }
 
-/* ============ BRAND TEXT - ROT MIT GLANZ ============ */
+/* ============ BRAND TEXT - NUR LOGO UND SPRACHEN ============ */
 .brand{ text-align:center; }
 
 .brand__logo-text{
@@ -151,29 +154,12 @@ a{color:inherit;text-decoration:none}
     text-shadow: 
       0 0 30px rgba(255, 75, 75, 0.5),
       0 0 60px rgba(184, 15, 26, 0.3);
-    background: linear-gradient(135deg, 
-      #ff9999 0%,
-      #ff1f3a 30%,
-      #ff4b4b 50%,
-      #ffffff 70%,
-      #b80f1a 85%,
-      #ff4b4b 100%
-    );
-    -webkit-background-clip:text;
   }
   50% {
     text-shadow: 
       0 0 40px rgba(255, 120, 120, 0.8),
       0 0 80px rgba(255, 31, 58, 0.6),
       0 0 100px rgba(255, 75, 75, 0.4);
-    background: linear-gradient(135deg, 
-      #ffffff 0%,
-      #ff4b4b 25%,
-      #ff1f3a 50%,
-      #ff8080 75%,
-      #ffffff 100%
-    );
-    -webkit-background-clip:text;
   }
 }
 
@@ -215,9 +201,27 @@ a{color:inherit;text-decoration:none}
   font-size: 16px;
 }
 
-/* Tagline (zwischen Header und Services) */
-.tagline{
+/* Header-Service-Liste ENTFERNT - die gehört nicht in Header */
+/* Header-Text "Faire Preise" ENTFERNT - kommt später */
+
+/* Spacer */
+.header-spacer{ height: 360px; }
+
+/* ============ LEISTUNGEN ÜBERSICHT (kurze Liste) ============ */
+.services-overview{
   padding: 30px 0 20px;
+  text-align: center;
+}
+
+.services-overview p{
+  font-size: 22px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* ============ TAGLINE ============ */
+.tagline{
+  padding: 20px 0 40px;
   position: relative;
   z-index: 1;
 }
@@ -230,9 +234,6 @@ a{color:inherit;text-decoration:none}
   text-shadow: 0 0 20px rgba(184,15,26,.3);
   letter-spacing: -0.3px;
 }
-
-/* Spacer */
-.header-spacer{ height: 360px; }
 
 /* ============ SERVICES - GLAS WÖLKCHEN ============ */
 .services{
@@ -282,8 +283,8 @@ a{color:inherit;text-decoration:none}
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   
-  /* Wölkchen-Form */
-  border-radius: 80px 80px 80px 80px / 60px 60px 60px 60px;
+  /* Wölkchen-Form - RUNDER */
+  border-radius: 120px 120px 120px 120px / 80px 80px 80px 80px;
   box-shadow: 
     0 25px 50px -12px rgba(0, 0, 0, 0.5),
     inset 0 -2px 0 rgba(255, 255, 255, 0.1),
@@ -299,11 +300,11 @@ a{color:inherit;text-decoration:none}
 .cloud::before {
   content: "";
   position: absolute;
-  top: -10%;
-  left: -10%;
-  right: -10%;
-  bottom: -10%;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2) 0%, transparent 60%);
+  top: -20%;
+  left: -20%;
+  right: -20%;
+  bottom: -20%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -319,11 +320,17 @@ a{color:inherit;text-decoration:none}
 }
 
 .cloud-icon {
-  font-size: 42px;
+  font-size: 48px;
   margin-bottom: 15px;
-  filter: drop-shadow(0 0 10px rgba(255,75,75,0.3));
+  filter: drop-shadow(0 0 15px rgba(255,75,75,0.5));
   position: relative;
   z-index: 1;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 .cloud-title {
@@ -433,14 +440,20 @@ a{color:inherit;text-decoration:none}
   .flag{ flex: 1 1 calc(50% - 10px); justify-content:center; }
   .tagline__text{ font-size: 18px; }
   
-  /* Wölkchen Mobile */
-  .cloud-row{ gap: 15px; }
-  .cloud{ 
-    flex: 1 1 100%; 
-    max-width: 100%;
-    padding: 25px 15px;
+  /* Wölkchen Mobile - UNTEREINANDER */
+  .cloud-row{ 
+    flex-direction: column; 
+    gap: 15px;
+    align-items: center;
   }
-  .cloud-icon{ font-size: 36px; }
+  .cloud{ 
+    flex: 1 1 auto; 
+    max-width: 100%;
+    width: 100%;
+    padding: 25px 15px;
+    border-radius: 100px 100px 100px 100px / 60px 60px 60px 60px;
+  }
+  .cloud-icon{ font-size: 42px; }
   .cloud-title{ font-size: 22px; }
   .cloud-desc{ font-size: 14px; }
   
@@ -448,6 +461,10 @@ a{color:inherit;text-decoration:none}
   .section-head p{ font-size: 16px; }
 }
 
+@media (max-width: 400px){
+  .cloud{ border-radius: 80px 80px 80px 80px / 50px 50px 50px 50px; }
+}
+
 @media (prefers-reduced-motion: reduce){
-  .ivko-main{ animation:none; }
+  .ivko-main, .cloud-icon{ animation:none; }
 }
