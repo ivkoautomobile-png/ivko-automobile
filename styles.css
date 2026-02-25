@@ -1,0 +1,386 @@
+:root{
+  --bg:#070A0F;
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.14);
+  --shadow:0 35px 120px rgba(0,0,0,.65);
+
+  --red2:#b80f1a;
+  --red3:#ff1f3a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:
+    radial-gradient(1200px 700px at 20% 0%, rgba(59,130,246,.18), transparent 60%),
+    radial-gradient(900px 600px at 85% 10%, rgba(34,197,94,.12), transparent 55%),
+    radial-gradient(900px 700px at 60% 120%, rgba(184,15,26,.10), transparent 60%),
+    var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+.container{max-width:1200px;margin:0 auto;padding:0 18px}
+
+/* =========================
+   HEADER (optional lift via JS)
+========================= */
+.topbar{
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+
+  transform: translate3d(0,var(--liftY,0px),0) scale(var(--liftScale,1));
+  opacity: var(--liftOpacity,1);
+  filter: blur(var(--liftBlur,0px));
+  transform-origin: top center;
+}
+
+.topbar__inner{
+  padding: 52px 66px;
+  border-radius: 38px;
+  border: 1px solid rgba(255,255,255,.15);
+
+  background:
+    radial-gradient(1000px 500px at 10% 0%, rgba(184,15,26,.12), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.08));
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 45px 130px rgba(0,0,0,.65);
+  overflow: hidden;
+  position: relative;
+}
+
+.brand__logo-text{
+  display:flex;
+  align-items:baseline;
+  gap:18px;
+  margin-bottom:18px;
+  position:relative;
+}
+
+.ivko-main{
+  font-family:'Playfair Display', serif;
+  font-size:76px;
+  font-weight:800;
+  letter-spacing:-3px;
+  line-height:1;
+
+  background: linear-gradient(90deg, #ffd2d2, var(--red3), var(--red2), #ff7a7a, var(--red2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter: drop-shadow(0 14px 30px rgba(184,15,26,.22));
+}
+
+.ivko-sub{
+  font-size:34px;
+  font-weight:500;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  opacity:.85;
+}
+
+.brand__copy{
+  font-size:18px;
+  opacity:.82;
+  margin-top:16px;
+}
+
+.brand__languages{ margin-top:22px; }
+.brand__languages-title{
+  font-weight:800;
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+.flags{display:flex;flex-wrap:wrap;gap:14px}
+.flag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 16px;
+  border-radius:16px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+}
+
+/* HERO */
+.image-section{
+  position:relative;
+  height:95vh;
+  width:100%;
+  overflow:hidden;
+}
+.image-section img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform: scale(1.03);
+  filter: brightness(.92) contrast(1.05) saturate(1.05);
+}
+.image-dim{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(1000px 600px at 25% 30%, rgba(0,0,0,.12), rgba(0,0,0,.75) 75%),
+    linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.85));
+}
+
+/* =========================
+   SERVICES – STATIC CENTERED
+========================= */
+.services{
+  padding: 140px 0 120px;
+}
+
+.services__title{
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 950;
+  letter-spacing: -.6px;
+  margin-bottom: 10px;
+}
+
+.services__hint{
+  color: rgba(255,255,255,.60);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.glass-stage{
+  height: 820px;
+  border-radius: 32px;
+  border:1px solid rgba(255,255,255,.12);
+
+  background:
+    radial-gradient(900px 420px at 20% 20%, rgba(59,130,246,.14), transparent 55%),
+    radial-gradient(900px 420px at 80% 15%, rgba(184,15,26,.12), transparent 60%),
+    linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.04));
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 40px 120px rgba(0,0,0,.45);
+
+  display: grid;
+  place-items: center; /* ✅ genau Mitte */
+  padding: 40px;
+}
+
+/* ✅ GRID in der Mitte, sauberer Abstand */
+.sticker-grid{
+  width: min(980px, 100%);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 40px;
+  align-items: center;
+  justify-items: center;
+}
+
+/* ✅ alle Sticker gleiche Breite -> nichts ragt raus */
+.glass-pill{
+  width: 360px;
+  max-width: 100%;
+  padding: 22px 28px;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.20);
+
+  background: linear-gradient(180deg, rgba(255,255,255,.28), rgba(255,255,255,.10));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.45),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  display:flex;
+  align-items:center;
+  gap: 16px;
+
+  font-weight: 900;
+  font-size: 26px;
+}
+
+.pill-icon{
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  display:grid;
+  place-items:center;
+  font-size: 26px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.pill-text{ font-weight: 900; }
+
+/* CONTACT */
+.contact{
+  padding: 120px 0 110px;
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0));
+  text-align:center;
+}
+.contact h2{
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 950;
+  margin-bottom: 44px;
+}
+.contact-modern{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap:18px;
+  max-width:980px;
+  margin:0 auto;
+}
+.contact-card{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  text-align:left;
+  padding:22px 22px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 26px 80px rgba(0,0,0,.40);
+}
+.contact-card .icon{ font-size:28px; margin-top:2px; }
+.label{
+  font-size:12px;
+  color: rgba(255,255,255,.60);
+  margin-bottom:6px;
+  font-weight:700;
+}
+.contact-card a{
+  color: rgba(140,190,255,.95);
+  font-weight:850;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.contact-small{ margin-top:8px; color: rgba(255,255,255,.62); font-size:13px; }
+
+.footer{ margin-top:34px; opacity:.55; font-size:13px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .topbar{top:12px}
+  .topbar__inner{padding:34px 22px;border-radius:26px}
+  .ivko-main{font-size:60px}
+  .ivko-sub{font-size:28px; letter-spacing:4px}
+  .glass-stage{height: 620px}
+  .sticker-grid{grid-template-columns: repeat(2, minmax(0, 1fr))}
+  .glass-pill{width: 340px; font-size: 24px}
+}
+
+@media (max-width: 600px){
+  .image-section{height:88vh}
+  .glass-stage{height: 560px; padding: 22px}
+  .sticker-grid{gap: 16px}
+  .glass-pill{width: 100%; font-size: 22px; padding: 18px 18px}
+  .pill-icon{width: 52px; height: 52px}
+}
+
+/* ==================================================
+   ===== PREMIUM BRAND HEADER STYLE =====
+================================================== */
+
+.brand--centered{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* Hauptlogo */
+.brand__logo{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  line-height:1;
+  margin-bottom:28px;
+}
+
+/* IVKO – dominant */
+.brand__ivko{
+  font-family:'Playfair Display', serif;
+  font-size:120px;
+  font-weight:900;
+  letter-spacing:-4px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #ff2e2e,
+    #b80f1a,
+    #ff6a6a,
+    #ffffff
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 30px rgba(255,40,40,.25);
+
+  position:relative;
+}
+
+/* dezente Glanz-Animation */
+.brand__ivko::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.7) 40%, transparent 70%);
+  transform:translateX(-120%);
+  animation: ivkoShine 5s ease-in-out infinite;
+  mix-blend-mode: screen;
+  opacity:.4;
+}
+
+@keyframes ivkoShine{
+  0%{transform:translateX(-120%)}
+  50%{transform:translateX(120%)}
+  100%{transform:translateX(120%)}
+}
+
+/* AUTOMOBILE – moderner Tech-Look */
+.brand__automobile{
+  font-size:36px;
+  font-weight:600;
+  letter-spacing:10px;
+  margin-top:-10px;
+  color:rgba(255,255,255,.85);
+  text-transform:uppercase;
+}
+
+/* Claim größer & hochwertiger */
+.brand__claim{
+  font-size:24px;
+  font-weight:600;
+  letter-spacing:.3px;
+  color:rgba(255,255,255,.92);
+  max-width:760px;
+  margin-bottom:40px;
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .brand__ivko{font-size:82px}
+  .brand__automobile{font-size:24px; letter-spacing:6px}
+  .brand__claim{font-size:20px}
+}
+
+@media (max-width:600px){
+  .brand__ivko{font-size:64px}
+  .brand__automobile{font-size:18px; letter-spacing:4px}
+  .brand__claim{font-size:18px}
+}
