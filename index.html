@@ -25,14 +25,11 @@
   </section>
 
   <!-- =========================
-       HEADER (FIXED, fades on scroll)
-       ID is needed for JS
+       HEADER (FIXED) - NUR LOGO + SPRACHEN
   ========================== -->
   <header class="topbar" id="liftHeader" aria-label="Header">
     <div class="container">
       <div class="topbar__inner">
-
-        <!-- ===== BRAND ===== -->
         <div class="brand">
           <div class="brand__logo-text" aria-label="IvKo Automobile">
             <div class="ivko-stack">
@@ -40,15 +37,7 @@
               <div class="ivko-sub">Automobile</div>
             </div>
           </div>
-
-          <div class="brand__services">
-            Diagnose · Lackierung · Reifenservice · Klimaservice · TÜV · Inspektion
-          </div>
-
-          <div class="brand__copy">
-            Faire Preise. Schnell, sauber und zuverlässig.
-          </div>
-
+          
           <div class="brand__languages">
             <div class="brand__languages-title">Wir sprechen:</div>
             <div class="flags">
@@ -61,7 +50,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </header>
@@ -71,76 +59,99 @@
   ========================== -->
   <main>
 
-    <!-- Spacer so content starts under fixed header (JS updates this too) -->
+    <!-- Spacer so content starts under fixed header -->
     <div class="header-spacer" id="headerSpacer"></div>
 
     <!-- =========================
-         SERVICES (GLASS WALL)
+         KURZE LEISTUNGSÜBERSICHT (eine Zeile)
+    ========================== -->
+    <section class="services-overview">
+      <div class="container">
+        <p>Diagnose · Lackierung · Reifenservice · Klimaservice · TÜV · Inspektion</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         TAGLINE
+    ========================== -->
+    <section class="tagline">
+      <div class="container">
+        <div class="tagline__text">
+          Faire Preise. Schnell, sauber und zuverlässig.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         SERVICES (GLAS WÖLKCHEN)
     ========================== -->
     <section class="services" id="services">
       <div class="container">
 
         <div class="section-head">
-          <h2>Leistungen</h2>
-          <p>Unsere wichtigsten Leistungen auf einen Blick.</p>
+          <h2>Unsere Leistungen</h2>
+          <p>Alle Leistungen aus einer Hand – professionell und zuverlässig.</p>
         </div>
 
-        <div class="glass-wall" aria-label="Leistungen Glaswand">
-          <div class="service-grid">
-
-            <div class="service-pill">
-              <div class="service-icon">🖥️</div>
-              <div class="service-title">Diagnose</div>
+        <div class="glass-clouds">
+          
+          <div class="cloud-row">
+            <div class="cloud">
+              <div class="cloud-icon">🖥️</div>
+              <div class="cloud-title">Diagnose</div>
             </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🖌️</div>
-              <div class="service-title">Lackierung</div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">🖌️</div>
+              <div class="cloud-title">Lackierung</div>
             </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🛞</div>
-              <div class="service-title">Reifenservice</div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">🛞</div>
+              <div class="cloud-title">Reifenservice</div>
             </div>
-
-            <div class="service-pill">
-              <div class="service-icon">❄️</div>
-              <div class="service-title">Klimaservice</div>
-            </div>
-
-            <div class="service-pill">
-              <div class="service-icon">✅</div>
-              <div class="service-title">TÜV</div>
-            </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🔧</div>
-              <div class="service-title">Inspektion</div>
-            </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🛢️</div>
-              <div class="service-title">Ölservice</div>
-            </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🎨</div>
-              <div class="service-title">Smart Repair</div>
-            </div>
-
-            <div class="service-pill">
-              <div class="service-icon">🚗</div>
-              <div class="service-title">An- & Verkauf</div>
-            </div>
-
           </div>
-        </div>
+          
+          <div class="cloud-row">
+            <div class="cloud">
+              <div class="cloud-icon">❄️</div>
+              <div class="cloud-title">Klimaservice</div>
+            </div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">✅</div>
+              <div class="cloud-title">TÜV</div>
+            </div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">🔧</div>
+              <div class="cloud-title">Inspektion</div>
+            </div>
+          </div>
+          
+          <div class="cloud-row">
+            <div class="cloud">
+              <div class="cloud-icon">🛢️</div>
+              <div class="cloud-title">Ölservice</div>
+            </div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">✨</div>
+              <div class="cloud-title">Smart Repair</div>
+            </div>
+            
+            <div class="cloud">
+              <div class="cloud-icon">💰</div>
+              <div class="cloud-title">An- & Verkauf</div>
+            </div>
+          </div>
 
+        </div>
       </div>
     </section>
 
     <!-- =========================
-         CONTACT (Footer / Kontakt)
+         CONTACT
     ========================== -->
     <section class="contact" id="kontakt">
       <div class="container">
