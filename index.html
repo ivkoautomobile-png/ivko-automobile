@@ -3,202 +3,182 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IvKo Automobile – Werkstatt</title>
+  <title>IvKo Automobile – Premium Werkstatt</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
-  <meta name="theme-color" content="#070A0F" />
+  <meta name="theme-color" content="#0A0C12" />
 </head>
-
 <body>
 
-  <!-- =========================
-       HERO / BACKGROUND IMAGE
-  ========================== -->
-  <section class="hero" aria-label="Hero">
-    <img class="hero__img" src="workshop-top.jpeg" alt="Werkstatt Hintergrund" />
-    <div class="hero__dim"></div>
-  </section>
+  <!-- BACKGROUND LAYER (beide Bilder) -->
+  <div class="bg-layer">
+    <img src="workshop-top.jpeg" class="bg-img bg-img--top" alt="Werkstatt oben">
+    <img src="workshop-middle.jpeg" class="bg-img bg-img--middle" alt="Werkstatt mitte">
+    <div class="bg-overlay"></div>
+  </div>
 
-  <!-- =========================
-       HEADER (FIXED) - NUR LOGO + SPRACHEN
-  ========================== -->
-  <header class="topbar" id="liftHeader" aria-label="Header">
+  <!-- HEADER (transparent, verschwindet schnell) -->
+  <header class="header" id="mainHeader">
     <div class="container">
-      <div class="topbar__inner">
-        <div class="brand">
-          <div class="brand__logo-text" aria-label="IvKo Automobile">
-            <div class="ivko-stack">
-              <div class="ivko-main">IVKO</div>
-              <div class="ivko-sub">Automobile</div>
-            </div>
-          </div>
-          
-          <div class="brand__languages">
-            <div class="brand__languages-title">Wir sprechen:</div>
-            <div class="flags">
-              <span class="flag">🇩🇪 Deutsch</span>
-              <span class="flag">🇬🇧 Englisch</span>
-              <span class="flag">🇬🇷 Griechisch</span>
-              <span class="flag">🇧🇬 Bulgarisch</span>
-              <span class="flag">🇷🇺 Russisch</span>
-              <span class="flag">🇺🇦 Ukrainisch</span>
-            </div>
+      <div class="header__inner">
+        <div class="logo">
+          <span class="logo__main">IVKO</span>
+          <span class="logo__sub">AUTOMOBILE</span>
+        </div>
+        
+        <div class="languages">
+          <span class="lang-label">Wir sprechen:</span>
+          <div class="lang-flags">
+            <span class="lang-flag">🇩🇪</span>
+            <span class="lang-flag">🇬🇧</span>
+            <span class="lang-flag">🇬🇷</span>
+            <span class="lang-flag">🇧🇬</span>
+            <span class="lang-flag">🇷🇺</span>
+            <span class="lang-flag">🇺🇦</span>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- =========================
-       MAIN CONTENT
-  ========================== -->
+  <!-- MAIN CONTENT -->
   <main>
 
-    <!-- Spacer so content starts under fixed header -->
+    <!-- SPACER (angepasst auf 30px) -->
     <div class="header-spacer" id="headerSpacer"></div>
 
-    <!-- =========================
-         KURZE LEISTUNGSÜBERSICHT (eine Zeile)
-    ========================== -->
-    <section class="services-overview">
+    <!-- ========================================= -->
+    <!-- HERO-STATEMENT (NEU - Lösung 2) -->
+    <!-- ========================================= -->
+    <section class="hero-statement">
       <div class="container">
-        <p>Diagnose · Lackierung · Reifenservice · Klimaservice · TÜV · Inspektion</p>
-      </div>
-    </section>
-
-    <!-- =========================
-         TAGLINE
-    ========================== -->
-    <section class="tagline">
-      <div class="container">
-        <div class="tagline__text">
-          Faire Preise. Schnell, sauber und zuverlässig.
+        <div class="statement-box">
+          <h2>Meisterwerkstatt für Ihr Fahrzeug</h2>
+          <p>Seit 1995 – Ihr Partner für Diagnose, Reparatur & Service</p>
+          <div class="statement-badge">
+            <span>⚡ 24h Service</span>
+            <span>🔧 Meisterbetrieb</span>
+            <span>✓ TÜV-Vorbereitung</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================
-         SERVICES (GLAS WÖLKCHEN)
-    ========================== -->
-    <section class="services" id="services">
+    <!-- LEISTUNGEN (Glas-Karten) -->
+    <section class="services-section">
       <div class="container">
-
-        <div class="section-head">
-          <h2>Unsere Leistungen</h2>
-          <p>Alle Leistungen aus einer Hand – professionell und zuverlässig.</p>
+        
+        <div class="section-header">
+          <h2 class="section-title">Unsere <span class="text-red">Leistungen</span></h2>
+          <p class="section-subtitle">Alles aus einer Hand – für Ihr Fahrzeug</p>
         </div>
 
-        <div class="glass-clouds">
+        <div class="services-grid">
           
-          <div class="cloud-row">
-            <div class="cloud">
-              <div class="cloud-icon">🖥️</div>
-              <div class="cloud-title">Diagnose</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">🖌️</div>
-              <div class="cloud-title">Lackierung</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">🛞</div>
-              <div class="cloud-title">Reifenservice</div>
-            </div>
+          <!-- Reihe 1 -->
+          <div class="service-card">
+            <div class="service-icon">🖥️</div>
+            <h3 class="service-title">Diagnose</h3>
+            <p class="service-desc">Fehleranalyse & Bordcomputer</p>
           </div>
-          
-          <div class="cloud-row">
-            <div class="cloud">
-              <div class="cloud-icon">❄️</div>
-              <div class="cloud-title">Klimaservice</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">✅</div>
-              <div class="cloud-title">TÜV</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">🔧</div>
-              <div class="cloud-title">Inspektion</div>
-            </div>
+
+          <div class="service-card">
+            <div class="service-icon">🖌️</div>
+            <h3 class="service-title">Lackierung</h3>
+            <p class="service-desc">Unfallreparatur & Neulack</p>
           </div>
-          
-          <div class="cloud-row">
-            <div class="cloud">
-              <div class="cloud-icon">🛢️</div>
-              <div class="cloud-title">Ölservice</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">✨</div>
-              <div class="cloud-title">Smart Repair</div>
-            </div>
-            
-            <div class="cloud">
-              <div class="cloud-icon">💰</div>
-              <div class="cloud-title">An- & Verkauf</div>
-            </div>
+
+          <div class="service-card">
+            <div class="service-icon">🛞</div>
+            <h3 class="service-title">Reifenservice</h3>
+            <p class="service-desc">Montage & Einlagerung</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">❄️</div>
+            <h3 class="service-title">Klimaservice</h3>
+            <p class="service-desc">Wartung & Befüllung</p>
+          </div>
+
+          <!-- Reihe 2 -->
+          <div class="service-card">
+            <div class="service-icon">✅</div>
+            <h3 class="service-title">TÜV & AU</h3>
+            <p class="service-desc">Vorbereitung & Prüfung</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3 class="service-title">Inspektion</h3>
+            <p class="service-desc">Nach Herstellervorgaben</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">🛢️</div>
+            <h3 class="service-title">Ölservice</h3>
+            <p class="service-desc">Motoröl & Filter</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon">✨</div>
+            <h3 class="service-title">Smart Repair</h3>
+            <p class="service-desc">Dellen & Kratzer</p>
+          </div>
+
+          <!-- Reihe 3 (zentriert) -->
+          <div class="service-card service-card--wide">
+            <div class="service-icon">💰</div>
+            <h3 class="service-title">An- & Verkauf</h3>
+            <p class="service-desc">Faire Bewertung & Abwicklung</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- =========================
-         CONTACT
-    ========================== -->
-    <section class="contact" id="kontakt">
+    <!-- KONTAKT / STANDORT -->
+    <section class="contact-section">
       <div class="container">
-        <h2>Kontakt</h2>
-
-        <div class="contact-modern">
-
+        
+        <div class="contact-grid">
+          
           <div class="contact-card">
-            <div class="icon">📞</div>
-            <div>
-              <div class="label">Festnetz (auch WhatsApp)</div>
-              <a href="https://wa.me/4921514427532" target="_blank" rel="noopener">
-                +49 2151 4427532
-              </a>
-              <div class="contact-small">Termin einfach per WhatsApp schreiben.</div>
-            </div>
+            <div class="contact-icon">📞</div>
+            <div class="contact-label">WhatsApp / Festnetz</div>
+            <a href="https://wa.me/4921514427532" class="contact-link">+49 2151 4427532</a>
+            <div class="contact-note">Einfach anschreiben</div>
           </div>
 
           <div class="contact-card">
-            <div class="icon">📍</div>
-            <div>
-              <div class="label">Adresse</div>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=IvKo%20Automobile%2C%20Alte%20Gladbacher%20Str.%206%2C%2047805%20Krefeld"
-                target="_blank" rel="noopener"
-              >
-                Alte Gladbacher Str. 6, 47805 Krefeld
-              </a>
-              <div class="contact-small">In Google Maps öffnen.</div>
-            </div>
+            <div class="contact-icon">📍</div>
+            <div class="contact-label">Adresse</div>
+            <a href="https://www.google.com/maps/search/?api=1&query=IvKo%20Automobile%2C%20Alte%20Gladbacher%20Str.%206%2C%2047805%20Krefeld" class="contact-link">
+              Alte Gladbacher Str. 6<br>47805 Krefeld
+            </a>
+            <div class="contact-note">In Maps öffnen</div>
           </div>
 
           <div class="contact-card">
-            <div class="icon">🌐</div>
-            <div>
-              <div class="label">Website</div>
-              <a href="https://ivko-automobile.com" target="_blank" rel="noopener">
-                ivko-automobile.com
-              </a>
-              <div class="contact-small">Immer aktuelle Infos.</div>
-            </div>
+            <div class="contact-icon">🌐</div>
+            <div class="contact-label">Website</div>
+            <a href="https://ivko-automobile.com" class="contact-link">ivko-automobile.com</a>
+            <div class="contact-note">Immer aktuell</div>
           </div>
 
         </div>
 
         <div class="footer">
-          © <span id="year"></span> IvKo Automobile
+          <div class="footer-languages">
+            <strong>Wir sprechen:</strong> Deutsch, Englisch, Griechisch, Bulgarisch, Russisch, Ukrainisch
+          </div>
+          <div class="footer-copyright">
+            © <span id="year"></span> IvKo Automobile
+          </div>
         </div>
 
       </div>
